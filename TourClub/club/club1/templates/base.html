@@ -1,0 +1,136 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Туристический клуб «Вершина»{% endblock %}</title>
+    <style>
+        /* Сброс стилей */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f4f6f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        /* Шапка сайта */
+        header {
+            background: linear-gradient(90deg, #1a1a2e, #16213e);
+            padding: 0 40px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+        }
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 70px;
+        }
+        .logo {
+            color: #fff;
+            font-size: 22px;
+            font-weight: bold;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+        .nav-links > li {
+            position: relative;
+        }
+        .nav-links a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        .nav-links a:hover {
+            color: #fff;
+        }
+        /* Выпадающее меню */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #16213e;
+            list-style: none;
+            min-width: 180px;
+            padding: 10px 0;
+            border-radius: 0 0 5px 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            z-index: 10;
+        }
+        .dropdown-content li {
+            padding: 8px 20px;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        /* Основной контент */
+        main {
+            flex: 1;
+            padding: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        h1 {
+            margin-bottom: 20px;
+            color: #1a1a2e;
+        }
+        p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        ul.data-list {
+            margin-left: 20px;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+        /* Подвал */
+        footer {
+            background: #1a1a2e;
+            color: #777;
+            text-align: center;
+            padding: 20px;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="{% url 'home' %}" class="logo">🏔 Клуб «Вершина»</a>
+            <ul class="nav-links">
+                <li><a href="{% url 'home' %}">Главная</a></li>
+                <li class="dropdown">
+                    <a href="{% url 'about' %}">О компании ▾</a>
+                    <ul class="dropdown-content">
+                        <li><a href="{% url 'contacts' %}">Контакты</a></li>
+                        <li><a href="{% url 'how_to_find' %}">Как нас найти</a></li>
+                    </ul>
+                </li>
+                <li><a href="{% url 'routes' %}">Маршруты</a></li>
+                <li><a href="{% url 'tours' %}">Туры</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        © 2025 Туристический клуб «Вершина»
+    </footer>
+</body>
+</html>
