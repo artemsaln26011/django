@@ -1,0 +1,10 @@
+<h1>{% if form.instance.pk %}Редактировать инструктора{% else %}Добавить нового инструктора{% endif %}</h1>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Сохранить</button>
+</form>
+
+<hr>
+<a href="{% url 'instructor_list' %}">Вернуться к списку инструкторов</a>

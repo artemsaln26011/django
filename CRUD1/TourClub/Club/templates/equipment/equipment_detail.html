@@ -1,0 +1,15 @@
+<h1>{{ equipment.name }}</h1>
+
+{% if equipment.photo %}
+    <p><img src="{{ equipment.photo.url }}" alt="{{ equipment.name }}" width="300"></p>
+{% endif %}
+
+<p><strong>Описание:</strong> {{ equipment.description }}</p>
+<p><strong>Цена аренды:</strong> {{ equipment.price }} руб.</p>
+<p><strong>Количество:</strong> {{ equipment.quantity }}</p>
+<p><strong>Доступно:</strong> {% if equipment.is_available %}Да{% else %}Нет{% endif %}</p>
+
+<hr>
+<a href="{% url 'equipment_list' %}">Вернуться к списку снаряжения</a> |
+<a href="{% url 'equipment_update' equipment.pk %}">Редактировать</a> |
+<a href="{% url 'equipment_delete' equipment.pk %}">Удалить</a>

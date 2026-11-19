@@ -1,0 +1,9 @@
+<h1>Удалить снаряжение "{{ equipment.name }}"?</h1>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Удалить</button>
+</form>
+
+<hr>
+<a href="{% url 'equipment_list' %}">Вернуться к списку снаряжения</a>

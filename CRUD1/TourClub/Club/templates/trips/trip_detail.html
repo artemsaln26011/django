@@ -1,0 +1,13 @@
+<h1>{{ trip.name }}</h1>
+
+<p><strong>Маршрут:</strong> {{ trip.route }}</p>
+<p><strong>Инструктор:</strong> {{ trip.instructor }}</p>
+<p><strong>Дата начала:</strong> {{ trip.start_date }}</p>
+<p><strong>Дата окончания:</strong> {{ trip.end_date }}</p>
+<p><strong>Макс. участников:</strong> {{ trip.max_participants }}</p>
+<p><strong>Набор открыт:</strong> {% if trip.is_open %}Да{% else %}Нет{% endif %}</p>
+
+<hr>
+<a href="{% url 'trip_list' %}">Вернуться к списку походов</a> |
+<a href="{% url 'trip_update' trip.pk %}">Редактировать</a> |
+<a href="{% url 'trip_delete' trip.pk %}">Удалить</a>

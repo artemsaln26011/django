@@ -1,0 +1,17 @@
+<h1>Инструкторы</h1>
+
+<a href="{% url 'instructor_create' %}">Добавить нового инструктора</a>
+
+<ul>
+{% for instructor in instructors %}
+    <li>
+        <a href="{% url 'instructor_detail' instructor.pk %}">
+            {{ instructor.last_name }} {{ instructor.first_name }}
+        </a>
+        (<a href="{% url 'instructor_update' instructor.pk %}">Редактировать</a> |
+        <a href="{% url 'instructor_delete' instructor.pk %}">Удалить</a>)
+    </li>
+{% empty %}
+    <li>Инструкторов пока нет.</li>
+{% endfor %}
+</ul>

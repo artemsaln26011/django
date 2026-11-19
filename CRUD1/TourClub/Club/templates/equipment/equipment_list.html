@@ -1,0 +1,15 @@
+<h1>Снаряжение</h1>
+
+<a href="{% url 'equipment_create' %}">Добавить новое снаряжение</a>
+
+<ul>
+{% for item in equipment_items %}
+    <li>
+        <a href="{% url 'equipment_detail' item.pk %}">{{ item.name }}</a>
+        (<a href="{% url 'equipment_update' item.pk %}">Редактировать</a> |
+        <a href="{% url 'equipment_delete' item.pk %}">Удалить</a>)
+    </li>
+{% empty %}
+    <li>Снаряжения пока нет.</li>
+{% endfor %}
+</ul>

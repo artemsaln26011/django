@@ -1,0 +1,18 @@
+<h1>{{ route.name }}</h1>
+
+{% if route.photo %}
+    <p><img src="{{ route.photo.url }}" alt="{{ route.name }}" width="400"></p>
+{% endif %}
+
+<p><strong>Описание:</strong> {{ route.description }}</p>
+<p><strong>Сложность:</strong> {{ route.difficulty }}</p>
+<p><strong>Протяжённость:</strong> {{ route.length_km }} км</p>
+<p><strong>Длительность:</strong> {{ route.duration_days }} дней</p>
+<p><strong>Категория:</strong> {{ route.category }}</p>
+<p><strong>Активен:</strong> {% if route.is_active %}Да{% else %}Нет{% endif %}</p>
+<p><strong>Дата добавления:</strong> {{ route.create_date }}</p>
+
+<hr>
+<a href="{% url 'route_list' %}">Вернуться к списку маршрутов</a> |
+<a href="{% url 'route_update' route.pk %}">Редактировать</a> |
+<a href="{% url 'route_delete' route.pk %}">Удалить</a>

@@ -1,0 +1,10 @@
+<h1>{{ tourist.last_name }} {{ tourist.first_name }}</h1>
+
+<p><strong>Email:</strong> {{ tourist.email }}</p>
+<p><strong>Телефон:</strong> {{ tourist.phone }}</p>
+<p><strong>Дата рождения:</strong> {{ tourist.birth_date|default:"—" }}</p>
+
+<hr>
+<a href="{% url 'tourist_list' %}">Вернуться к списку туристов</a> |
+<a href="{% url 'tourist_update' tourist.pk %}">Редактировать</a> |
+<a href="{% url 'tourist_delete' tourist.pk %}">Удалить</a>

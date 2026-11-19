@@ -1,0 +1,18 @@
+<h1>Туристы</h1>
+
+<a href="{% url 'tourist_create' %}">Добавить нового туриста</a>
+
+<ul>
+{% for tourist in tourists %}
+    <li>
+        <a href="{% url 'tourist_detail' tourist.pk %}">
+            {{ tourist.last_name }} {{ tourist.first_name }}
+        </a>
+        ({{ tourist.email }})
+        (<a href="{% url 'tourist_update' tourist.pk %}">Редактировать</a> |
+        <a href="{% url 'tourist_delete' tourist.pk %}">Удалить</a>)
+    </li>
+{% empty %}
+    <li>Туристов пока нет.</li>
+{% endfor %}
+</ul>

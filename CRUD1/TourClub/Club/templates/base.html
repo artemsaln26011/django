@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Туристический клуб{% endblock %}</title>
+</head>
+<body>
+    <nav>
+        <a href="{% url 'route_list' %}">Маршруты</a> |
+        <a href="{% url 'instructor_list' %}">Инструкторы</a> |
+        <a href="{% url 'equipment_list' %}">Снаряжение</a> |
+        <a href="{% url 'trip_list' %}">Походы</a> |
+        <a href="{% url 'tourist_list' %}">Туристы</a> |
+        <a href="/admin/">Админка</a>
+    </nav>
+    <hr>
+    {% block content %}{% endblock %}
+</body>
+</html>

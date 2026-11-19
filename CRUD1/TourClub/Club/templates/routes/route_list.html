@@ -1,0 +1,13 @@
+<h1>Маршруты</h1>
+<a href="{% url 'route_create' %}">Добавить новый маршрут</a>
+<ul>
+{% for route in routes %}
+    <li>
+        <a href="{% url 'route_detail' route.pk %}">{{ route.name }}</a>
+        (<a href="{% url 'route_update' route.pk %}">Редактировать</a> |
+        <a href="{% url 'route_delete' route.pk %}">Удалить</a>)
+    </li>
+{% empty %}
+    <li>Маршрутов пока нет.</li>
+{% endfor %}
+</ul>

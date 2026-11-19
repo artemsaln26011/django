@@ -1,0 +1,9 @@
+<h1>Удалить туриста "{{ tourist.last_name }} {{ tourist.first_name }}"?</h1>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Удалить</button>
+</form>
+
+<hr>
+<a href="{% url 'tourist_list' %}">Вернуться к списку туристов</a>

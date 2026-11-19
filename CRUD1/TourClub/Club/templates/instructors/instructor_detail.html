@@ -1,0 +1,14 @@
+<h1>{{ instructor.last_name }} {{ instructor.first_name }}</h1>
+
+{% if instructor.photo %}
+    <p><img src="{{ instructor.photo.url }}" alt="{{ instructor.last_name }}" width="300"></p>
+{% endif %}
+
+<p><strong>Телефон:</strong> {{ instructor.phone }}</p>
+<p><strong>Стаж:</strong> {{ instructor.experience_years }} лет</p>
+<p><strong>Работает:</strong> {% if instructor.is_active %}Да{% else %}Нет{% endif %}</p>
+
+<hr>
+<a href="{% url 'instructor_list' %}">Вернуться к списку инструкторов</a> |
+<a href="{% url 'instructor_update' instructor.pk %}">Редактировать</a> |
+<a href="{% url 'instructor_delete' instructor.pk %}">Удалить</a>

@@ -1,0 +1,10 @@
+<h1>{% if form.instance.pk %}Редактировать маршрут{% else %}Добавить новый маршрут{% endif %}</h1>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Сохранить</button>
+</form>
+
+<hr>
+<a href="{% url 'route_list' %}">Вернуться к списку маршрутов</a>

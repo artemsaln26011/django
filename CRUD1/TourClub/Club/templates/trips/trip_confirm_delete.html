@@ -1,0 +1,9 @@
+<h1>Удалить поход "{{ trip.name }}"?</h1>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Удалить</button>
+</form>
+
+<hr>
+<a href="{% url 'trip_list' %}">Вернуться к списку походов</a>

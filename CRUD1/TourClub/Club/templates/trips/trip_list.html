@@ -1,0 +1,16 @@
+<h1>Походы</h1>
+
+<a href="{% url 'trip_create' %}">Добавить новый поход</a>
+
+<ul>
+{% for trip in trips %}
+    <li>
+        <a href="{% url 'trip_detail' trip.pk %}">{{ trip.name }}</a>
+        ({{ trip.start_date }} — {{ trip.end_date }})
+        (<a href="{% url 'trip_update' trip.pk %}">Редактировать</a> |
+        <a href="{% url 'trip_delete' trip.pk %}">Удалить</a>)
+    </li>
+{% empty %}
+    <li>Походов пока нет.</li>
+{% endfor %}
+</ul>
